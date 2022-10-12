@@ -11,14 +11,11 @@ import (
 )
 
 func goDotEnvVariable(key string) string {
-
 	// load .env file
 	err := godotenv.Load(".env")
-
 	if err != nil {
 		log.Fatalf("Error loading .env file")
 	}
-
 	return os.Getenv(key)
 }
 
@@ -26,14 +23,11 @@ func DatabaseInit() {
 
 	db_url := goDotEnvVariable("URL")
 	conn, err := sql.Open("pgx", db_url)
-
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 		os.Exit(1)
 	}
-
 	testConnection(conn)
-
 	defer conn.Close()
 }
 

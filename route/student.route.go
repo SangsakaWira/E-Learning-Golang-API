@@ -1,25 +1,13 @@
 package route
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/gofiber/fiber/v2"
+	"kardiaq.id/m/v2/controller"
+)
 
 func RouteInit(route *fiber.App) {
-
-	route.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
-
-	// GET http://localhost:8080/hello%20world
-	route.Get("/value/:value", func(c *fiber.Ctx) error {
-		return c.SendString("value: " + c.Params("value"))
-		// => Get request with value: hello world
-	})
-
-	// GET http://localhost:3000/api/user/john
-	route.Get("/json", func(c *fiber.Ctx) error {
-
-		return c.JSON(fiber.Map{
-			"nama": "Sangsaka",
-		})
-
-	})
+	route.Get("/", controller.GetHelloWorld)
+	route.Get("/product", controller.GetAllProducts)
+	route.Get("/value/:value", controller.GetParams)
+	route.Get("/json", controller.GetJSONExample)
 }

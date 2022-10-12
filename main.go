@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-
 	app := fiber.New()
 	utility.DatabaseInit()
 	route.RouteInit(app)
