@@ -9,7 +9,7 @@ import (
 
 func main() {
 	app := fiber.New()
-	utility.DatabaseInit()
+	utility.ConnectDbORM()
 	route.RouteInit(app)
 	app.Listen(":3000")
 }
