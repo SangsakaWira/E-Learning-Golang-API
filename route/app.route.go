@@ -18,4 +18,5 @@ func RouteInit(route *fiber.App) {
 	route.Post("/pelanggan", controller.CreatePelanggan)
 	route.Get("/pelanggan/:id", controller.GetPelanggan)
 	route.Put("/pelanggan", controller.UpdatePelanggan)
+	route.Delete("/pelanggan", controller.DeletePelanggan)
 }
